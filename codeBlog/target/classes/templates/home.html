@@ -26,12 +26,13 @@
         </nav>
         <div class="card shadow-sm bg-white rounded" style="margin-top: 20px;" th:each="post : ${posts}">
             <div class="card-body">
-               <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;">
-                    <span th:text="${post.autor}"></span>
-                    <span th:text="${post.data}"></span>
-                </p>
-                <a th:href="${(#mvc.url('CC#getPostDetails').arg(0, post.id)).build()}"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"><span th:text="${post.titulo}"></span></h4></a>
-                <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,400)} "></span></p>
+               <span th:text="${post.autor}"></span>
+               <span th:text="${post.data}"></span>
+            </div>
+            
+            <div class = "card-content">
+            	<span th:utext="${#strings.abbreviate(post.texto,200)}"></span>
+            </div>
         </div>
     </div>
     </section>
